@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Will You Be My Valentine?</title>
+<style>
+:root{--pink:#ff6f91;--cream:#fff4dc;--shadow:0 25px 60px rgba(0,0,0,.25)}
+*{box-sizing:border-box}
+body{
+  margin:0;height:100vh;overflow:hidden;
+  background:radial-gradient(1000px 500px at 70% 10%, #fff 0%, var(--cream) 45%, #ffd1e1 100%);
+  display:flex;align-items:center;justify-content:center;
+  font-family:"Poppins","Comic Sans MS",cursive
+}
+.float{position:absolute;font-size:26px;opacity:.95;pointer-events:none;animation:rise linear infinite, sway ease-in-out infinite}
+@keyframes rise{from{transform:translateY(110vh) scale(.8)}to{transform:translateY(-30vh) scale(1.1)}}
+@keyframes sway{0%{margin-left:-14px}50%{margin-left:14px}100%{margin-left:-14px}}
+.card{background:white;border-radius:28px;padding:34px 40px;text-align:center;box-shadow:0 25px 60px rgba(0,0,0,.25);max-width:440px;position:relative;z-index:2;animation:pop .6s ease-out}
+@keyframes pop{from{transform:scale(.95);opacity:0}to{transform:scale(1);opacity:1}}
+h1{margin:0 0 10px;font-size:28px;color:#ff6f91}
+.card-text{font-size:14.5px;color:#555;line-height:1.45}
+.question{margin-top:16px;font-size:17px;font-weight:600;color:#7a1f3d;line-height:1.4}
+.buttons{margin-top:20px;display:flex;justify-content:center;gap:18px}
+.btn{padding:10px 22px;border-radius:999px;background:linear-gradient(135deg,#ffd1e4,#ff9fb7);color:#6b1632;font-size:15px;box-shadow:0 8px 18px rgba(255,90,122,.35);user-select:none}
+.btn.yes{background:linear-gradient(135deg,#ff9fb7,#ff5a7a);color:white;cursor:pointer}
+.btn.sybau{cursor:default;pointer-events:none}
+.result{margin-top:18px;font-size:18px;font-weight:800;color:#ff6f91}
+.confetti{position:fixed;top:-10px;font-size:22px;animation:fall linear forwards;pointer-events:none}
+@keyframes fall{to{transform:translateY(110vh) rotate(360deg);opacity:0}}
+</style>
+</head>
+<body>
+
+<audio id="bgm" src="Faye_Webster_-_Kingston_(mp3.pm).mp3" preload="auto"></audio>
+
+<script>
+for(let i=0;i<36;i++){
+  const f=document.createElement('div');
+  f.className='float';
+  f.textContent=Math.random()>0.5?'🌻':'💖';
+  f.style.left=Math.random()*100+'%';
+  f.style.fontSize=(22+Math.random()*26)+'px';
+  f.style.animationDuration=(12+Math.random()*10)+'s,'+(3+Math.random()*3)+'s';
+  document.body.appendChild(f);
+}
+function playMusic(){
+  const a=document.getElementById('bgm');
+  a.volume=0.7;
+  a.play().catch(()=>{});
+}
+function celebrate(){
+  for(let i=0;i<120;i++){
+    const c=document.createElement('div');
+    c.className='confetti';
+    c.textContent=Math.random()>0.5?'🎉':'💖';
+    c.style.left=Math.random()*100+'vw';
+    c.style.animationDuration=(2+Math.random()*2)+'s';
+    document.body.appendChild(c);
+    setTimeout(()=>c.remove(),4000);
+  }
+}
+function yes(){
+  playMusic();
+  document.querySelector('.result').textContent =
+   'OMG OMGG OMGGGGG SHE SAID YESSSSS Y\'ALL YAYAYAYAYAYA';
+  celebrate();
+}
+</script>
+
+<div class="card">
+  <h1>Happy Valentine’s Day</h1>
+
+  <div class="card-text">
+    Well hii honey. You reallyyy got that version of me out again. Never thought i'd be able to love someone again, but see here we are. Now i can't even stay without talking to you for even a day.<br><br>
+    Everytime your eyes and face show up in my mind, all i wanna do is js pack my luggage and take a flight straight to you. Needless to say you're the most beautiful girl i ever laid my eyes on, by beautiful i mean your face, your eyes, your smile, your cheeks when you blush(like rn), your lil forehead which i wanna kisss(and land the plane on🛩️), your lips, your heart, your soul, your kindness, your sensitiveness, all of it.<br><br>
+    But most i like bout you is that you're a bhondu, my bhondu. You make me feel things i never ever fell and you make me the happiest person on earth.<br><br>
+    I promise to be by your side always no matter the situation and try to make you smile everyday, bcz thats what i'm here for, i always wanna make you smile and laugh at my silly jokes.<br><br>
+    I love youuu soo fucking much my love and i always mean it in all senses.
+  </div>
+
+  <div class="question">
+    Harshima Gharti Magar,<br>
+    will you be my Valentine, my girlfriend,<br>
+    and my partner forever?
+  </div>
+
+  <div class="buttons">
+    <div class="btn yes" onclick="yes()">Yes 😽😍🥰</div>
+    <div class="btn sybau">Sybau💔</div>
+  </div>
+
+  <div class="result"></div>
+</div>
+
+</body>
+</html>
