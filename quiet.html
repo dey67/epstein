@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Click here my girl</title>
+<style>
+body{
+  margin:0;
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:radial-gradient(circle at top,#fff,#ffe6ef);
+  font-family:"Poppins","Comic Sans MS",cursive;
+  overflow:hidden;
+}
+button{
+  padding:18px 40px;
+  font-size:22px;
+  border:none;
+  border-radius:999px;
+  cursor:pointer;
+  background:linear-gradient(135deg,#ff9fb7,#ff5a7a);
+  color:white;
+  box-shadow:0 12px 25px rgba(255,90,122,.35);
+}
+.fade{
+  animation:fadeOut .9s ease forwards;
+}
+@keyframes fadeOut{
+  to{opacity:0; transform:scale(.97)}
+}
+</style>
+</head>
+<body>
+
+<button onclick="go()">Click here my girl</button>
+
+<script>
+function go(){
+  document.body.classList.add("fade");
+  setTimeout(()=>{
+    window.location.href="valentine_card_yes_text_new_phrase.html";
+  },900);
+}
+</script>
+
+</body>
+</html>
